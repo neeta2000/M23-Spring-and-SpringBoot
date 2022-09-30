@@ -1,0 +1,12 @@
+package com.example.demo;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+/*JPARepository is exists in Spring Data JPA dependencies and it conatains
+all the CRUD operation of Spring JPA
+*/
+public interface CollegeRepository extends JpaRepository<College,Integer>
+{
+	
+
+}
