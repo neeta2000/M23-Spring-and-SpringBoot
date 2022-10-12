@@ -1,7 +1,12 @@
 package com.example.demo;
 
-public class User {
-	
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class User 
+{
+	@Id
 	private Integer id;
 	private String name;
 	private String password;
@@ -48,6 +53,4 @@ public class User {
 	}
 	
 	
-	
-
 }

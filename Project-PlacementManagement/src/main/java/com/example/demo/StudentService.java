@@ -9,34 +9,34 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
-public class UserService {
-	
+public class StudentService 
+{
+	//it will create object using Autowired concepts
 	@Autowired
-	private UserRepository repo;
+	private StudentRepository repo;
 	
-	//to retrieve all the data of user class
-	public List<User> listAll()
+	//to retrieve all the data of student class
+	public List<Student> listAll()
 	{
 		return repo.findAll();
 	}
-	
-	//insert or create a data
-	public void create(User u)
+
+	//insert/ create data
+	public void create(Student s)
 	{
-		repo.save(u);
+		repo.save(s);
 	}
 	
 	//to retrieve a single record
-	public User retrieve(Integer id)
+	public Student retrieve(Integer id)
 	{
 		return repo.findById(id).get();
 	}
 	
-	//to delete a data
-	public void delete(Integer id)
+	//to delete data
+	public void delete (Integer id)
 	{
 		repo.deleteById(id);
 	}
-
-
 }
+

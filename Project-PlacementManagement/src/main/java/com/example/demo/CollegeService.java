@@ -11,31 +11,32 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class CollegeService {
 	
-	@Autowired
-	private CollegeRepository repo;
-	
-	//to retrieve all the data of college class
-	public List<College> listAll()
-	{
-		return repo.findAll();
-	}
-	
-	//insert or create a data
-	public void create(College c)
-	{
-		repo.save(c);
-	}
-	
-	//to retrieve a single record
-	public College retrieve(Integer id)
-	{
-		return repo.findById(id).get();
-	}
-	
-	//to delete a data
-	public void delete(Integer id)
-	{
-		repo.deleteById(id);
-	}
+	//it will create object using Autowired concepts
+			@Autowired
+			private CollegeRepository repo;
+			
+			//to retrieve all the data of college class
+			public List<College> listAll()
+			{
+				return repo.findAll();
+			}
+
+			//insert/ create data
+			public void create(College c)
+			{
+				repo.save(c);
+			}
+			
+			//to retrieve a single record
+			public College retrieve(Integer id)
+			{
+				return repo.findById(id).get();
+			}
+			
+			//to delete data
+			public void delete (Integer id)
+			{
+				repo.deleteById(id);
+			}
 
 }

@@ -4,39 +4,39 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class College {
-	
+public class College 
+{
 	@Id
 	private Integer id;
-	private String clg_name;
+	private String name;
 	private String location;
 	
-	//default constructor
+	//Default Constructor
 	public College() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	//parameterized constructor
-	public College(Integer id, String clg_name, String location) {
+	
+	//parametrized Constructor
+	public College(Integer id, String name, String location) {
 		super();
 		this.id = id;
-		this.clg_name = clg_name;
+		this.name = name;
 		this.location = location;
 	}
 	
-	
-	//getters and setters method
+	//getters and setters
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getClg_name() {
-		return clg_name;
+	public String getName() {
+		return name;
 	}
-	public void setClg_name(String clg_name) {
-		this.clg_name = clg_name;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getLocation() {
 		return location;
@@ -44,10 +44,5 @@ public class College {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	@Override
-	public String toString() {
-		return "College [id=" + id + ", clg_name=" + clg_name + ", location=" + location + "]";
-	}
 	
-
 }

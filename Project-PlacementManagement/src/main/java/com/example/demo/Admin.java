@@ -1,7 +1,12 @@
 package com.example.demo;
 
-public class Admin {
-	
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Admin 
+{
+	@Id
 	private Integer id;
 	private String name;
 	private String password;
@@ -46,7 +51,6 @@ public class Admin {
 	public String toString() {
 		return "Admin [id=" + id + ", name=" + name + ", password=" + password + "]";
 	}
-	
-	
-
 }
+	
+	

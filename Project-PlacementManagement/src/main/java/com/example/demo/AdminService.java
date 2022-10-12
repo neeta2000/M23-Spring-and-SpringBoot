@@ -2,10 +2,15 @@ package com.example.demo;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.transaction.Transactional;
 
-public class AdminService {
-	
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+@Transactional
+public class AdminService 
+{	
 	@Autowired
 	private AdminRepository repo;
 	
@@ -33,3 +38,5 @@ public class AdminService {
 		repo.deleteById(id);
 	}
 }
+
+

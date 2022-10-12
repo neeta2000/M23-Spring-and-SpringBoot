@@ -15,59 +15,58 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class CollegeController 
+public class PlacementController 
 {
 	@Autowired
-	private CollegeService service;
+	private PlacementService service;
 	
 	//creation
-	@PostMapping("/college")
-	public void add(@RequestBody College c)
+	@PostMapping("/placement")
+	public void add(@RequestBody Placement p)
 	{
-		service.create(c);
+		service.create(p);
 	}
 	
 	//deletion
-	@DeleteMapping("/college/{id}")
+	@DeleteMapping("/placement/{id}")
 	public void remove(@PathVariable Integer id)
 	{
 		service.delete(id);
 	}
 	
 	//retrieve with all the records
-	@GetMapping("/college")
-	public List<College>List()
+	@GetMapping("/placement")
+	public List<Placement>List()
 	{
 		return service.listAll();
 		
 	}
 	//Retrive with specific id
-	@GetMapping("/college/{id}")
-	public ResponseEntity<College>get(@PathVariable Integer id)
+	@GetMapping("/placement/{id}")
+	public ResponseEntity<Placement>get(@PathVariable Integer id)
 	{
 		try {
-			College c=service.retrieve(id);
-			return new ResponseEntity<College>(c,HttpStatus.OK);
+			Placement p=service.retrieve(id);
+			return new ResponseEntity<Placement>(p,HttpStatus.OK);
 		}
 		catch(NoSuchElementException e)
 		{
-			return new ResponseEntity<College>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<Placement>(HttpStatus.NOT_FOUND);
 		}
 	}
 	
 	//updation
-	@PutMapping("/college/{id}")
-	public ResponseEntity<College>update(@RequestBody Placement p, @PathVariable Integer id)
+	@PutMapping("/placement/{id}")
+	public ResponseEntity<Placement>update(@RequestBody Placement p, @PathVariable Integer id)
 	{
 		try {
-			@SuppressWarnings("unused")
-			College c1=service.retrieve(id);
-			service.create(c1);
-			return new ResponseEntity<College>(c1,HttpStatus.OK);
+			Placement p1=service.retrieve(id);
+			service.create(p1);
+			return new ResponseEntity<Placement>(p1,HttpStatus.OK);
 		}
 		catch(NoSuchElementException e)
 		{
-			return new ResponseEntity<College>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<Placement>(HttpStatus.NOT_FOUND);
 		}
 	}
 	

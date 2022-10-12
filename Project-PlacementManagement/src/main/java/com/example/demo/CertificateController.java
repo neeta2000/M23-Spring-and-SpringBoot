@@ -15,61 +15,61 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class CollegeController 
+public class CertificateController 
 {
 	@Autowired
-	private CollegeService service;
+	private CertificateService service;
 	
 	//creation
-	@PostMapping("/college")
-	public void add(@RequestBody College c)
+	@PostMapping("/certificate")
+	public void add(@RequestBody Certificate c)
 	{
 		service.create(c);
 	}
 	
 	//deletion
-	@DeleteMapping("/college/{id}")
+	@DeleteMapping("/certificate/{id}")
 	public void remove(@PathVariable Integer id)
 	{
 		service.delete(id);
 	}
-	
+		
 	//retrieve with all the records
-	@GetMapping("/college")
-	public List<College>List()
+	@GetMapping("/certificate")
+	public List<Certificate>List()
 	{
 		return service.listAll();
-		
 	}
+	
 	//Retrive with specific id
-	@GetMapping("/college/{id}")
-	public ResponseEntity<College>get(@PathVariable Integer id)
+	@GetMapping("/certificate/{id}")
+	public ResponseEntity<Certificate>get(@PathVariable Integer id)
 	{
-		try {
-			College c=service.retrieve(id);
-			return new ResponseEntity<College>(c,HttpStatus.OK);
+		try 
+			{
+				Certificate c=service.retrieve(id);
+				return new ResponseEntity<Certificate>(c,HttpStatus.OK);
+			}
+			catch(NoSuchElementException e)
+			{
+				return new ResponseEntity<Certificate>(HttpStatus.NOT_FOUND);
+			}
 		}
-		catch(NoSuchElementException e)
-		{
-			return new ResponseEntity<College>(HttpStatus.NOT_FOUND);
-		}
-	}
 	
 	//updation
-	@PutMapping("/college/{id}")
-	public ResponseEntity<College>update(@RequestBody Placement p, @PathVariable Integer id)
+	@PutMapping("/certificate/{id}")
+	public ResponseEntity<Certificate> update(@RequestBody Certificate c, @PathVariable Integer id)
 	{
-		try {
-			@SuppressWarnings("unused")
-			College c1=service.retrieve(id);
-			service.create(c1);
-			return new ResponseEntity<College>(c1,HttpStatus.OK);
+		try 
+			{
+				Certificate c1=service.retrieve(id);
+				service.create(c1);
+				return new ResponseEntity<Certificate>(c,HttpStatus.OK);
+			}
+			catch(NoSuchElementException e)
+			{
+				return new ResponseEntity<Certificate>(HttpStatus.NOT_FOUND);
+			}
 		}
-		catch(NoSuchElementException e)
-		{
-			return new ResponseEntity<College>(HttpStatus.NOT_FOUND);
-		}
-	}
-	
 
 }
